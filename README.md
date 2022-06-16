@@ -13,6 +13,8 @@ Can use this implementation to control any unit by movement of hands
 //arduino part
   Reset the arduino board
   Use an arduino IDE to open, compile and upload arduino file in arduino board
-  Make arduino connections as per
+  Make arduino connections as per mentioned link...
+  
+  
 //system part
-  Save the python file on your pc and run it  
+  Save the python file on your pc and run it.
