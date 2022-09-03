@@ -1,56 +1,51 @@
 import subprocess,bluetooth,pyautogui
-# Setting up connection
+import pydirectinput,time
 passkey="1234"
 subprocess.call("kill -9 `pidof bluetooth-agent`",shell=True)
 status = subprocess.call("bluetooth-agent " + passkey + " &",shell=True)
+
 sock=bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-# Pass your host ip and port as argument
-sock.connect(("PS:YO:UR:HO:ST:IP",1))
-
-
-
-# Core Code
+sock.connect(("00:18:91:D7:D1:53",1))
 while 1:
     x=sock.recv(1024)
-    print(x)
     x=x.decode()
     if x=="w":
-        pyautogui.keyUp("a")
-        pyautogui.keyUp("s")
-        pyautogui.keyUp("d")
-        pyautogui.keyDown("w")
+        pydirectinput.keyDown("w")
+        time.sleep(0.6)
+        pydirectinput.keyUp("w")
     elif x=="a":
-        pyautogui.keyUp("w")
-        pyautogui.keyUp("s")
-        pyautogui.keyUp("d")
-        pyautogui.keyDown("a")
+        pydirectinput.keyDown("a")
+        time.sleep(0.6)
+        pydirectinput.keyUp("a")
     elif x=="s":
-        pyautogui.keyUp("a")
-        pyautogui.keyUp("w")
-        pyautogui.keyUp("d")
-        pyautogui.keyDown("s")
+        pydirectinput.keyDown("s")
+        time.sleep(0.6)
+        pydirectinput.keyUp("s")
     elif x=="d":
-        pyautogui.keyUp("a")
-        pyautogui.keyUp("s")
-        pyautogui.keyUp("w")
-        pyautogui.keyDown("d")
+        pydirectinput.keyDown("d")
+        time.sleep(0.6)
+        pydirectinput.keyUp("d")
     elif x=="q":
-        pyautogui.keyUp("d")
-        pyautogui.keyUp("s")
-        pyautogui.keyDown("w")
-        pyautogui.keyDown("a")
+        pydirectinput.keyDown("w")
+        pydirectinput.keyDown("a")
+        time.sleep(0.6)
+        pydirectinput.keyUp("a")
+        pydirectinput.keyUp("w")
     elif x=="e":
-        pyautogui.keyUp("a")
-        pyautogui.keyUp("s")
-        pyautogui.keyDown("w")
-        pyautogui.keyDown("d")
-    elif x=="z":
-        pyautogui.keyUp("d")
-        pyautogui.keyUp("w")
-        pyautogui.keyDown("s")
-        pyautogui.keyDown("a")
+        pydirectinput.keyDown("w")
+        pydirectinput.keyDown("d")
+        time.sleep(0.6)
+        pydirectinput.keyUp("d")
+        pydirectinput.keyUp("w")
     elif x=="c":
-        pyautogui.keyUp("a")
-        pyautogui.keyUp("w")
-        pyautogui.keyDown("d")
-        pyautogui.keyDown("s")        
+        pydirectinput.keyDown("s")
+        pydirectinput.keyDown("d")
+        time.sleep(0.6)
+        pydirectinput.keyUp("d")
+        pydirectinput.keyUp("s")
+    elif x=="z":
+        pydirectinput.keyDown("s")
+        pydirectinput.keyDown("a")
+        time.sleep(0.6)
+        pydirectinput.keyUp("a")
+        pydirectinput.keyUp("s")
